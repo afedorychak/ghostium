@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial "header" . }}
+  <body class="">
+    {{ partial "drawer" . }}
+
+    <div class="drawer-overlay"></div>
+    <main id="container" role="main" class="container">
+      <div class="surface">
+        <div class="surface-container">
+          <div data-pjax-container class="content">
+            <section class="wrapper" tabindex="0">
+              <div class="wrapper-container">
+                {{ partial "custom/featured" . }}
+
+
+
+                {{ partial "footer" . }}
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    {{ partial "after_footer" . }}
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<article itemscope itemtype="http://schema.org/BlogPosting"
+  role="article" class="post-item">
+  <header class="post-item-header">
+    <h2 itemprop="name" class="post-item-title">
+      <a href="{{ .Permalink }}" itemprop="url" data-pjax title="{{ .Title }}">
+        {{ .Title }}
+      </a>
+    </h2>
+  </header>
+  <section itemprop="description" class="post-item-excerpt">
+    <p>{{ .Summary }}&hellip;</p>
+  </section>
+  <footer class="post-item-footer">
+    <ul class="post-item-meta-list">
+      <li class="post-item-meta-item">
+        <time datetime='{{ dateFormat "2006-01-02" .Date }}' itemprop="datePublished">
+          {{ dateFormat "2006-01-02" .Date }}
+        </time>
+      </li>
+      {{ partial "categories" . }}
+      <li class="post-item-meta-item">
+        <a href="{{ .Permalink }}#disqus_thread" data-pjax data-disqus-identifier="{{ $.Site.Params.disqus_short_name }}">Comments</a>
+      </li>
+    </ul>
+  </footer>
+</article>

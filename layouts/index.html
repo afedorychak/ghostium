@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial "header" . }}
+  <body class="">
+    {{ partial "drawer" . }}
+
+    <div class="drawer-overlay"></div>
+    <main id="container" role="main" class="container">
+      <div class="surface">
+        <div class="surface-container">
+          <div data-pjax-container class="content">
+            <section class="wrapper" tabindex="0">
+              <div class="wrapper-container">
+                {{ partial "custom/featured" . }}
+
+                {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+                <section class="post-list">
+                  {{ range $paginator.Pages }}
+                    {{ .Render "summary" }}
+                  {{ end }}
+                </section>
+
+                <nav role="pagination" class="post-list-pagination">
+                {{ if $paginator.HasPrev }}
+                  <a href="{{ $paginator.Prev.URL }}" class="post-list-pagination-item post-list-pagination-item-prev" data-pjax>
+                    <i class="fa fa-angle-double-left"></i>&nbsp;Newer
+                  </a>
+                {{ end }}
+                <span class="post-list-pagination-item post-list-pagination-item-current">Page 1 of 10</span>
+                {{ if $paginator.HasNext }}
+                  <a href="{{ $paginator.Next.URL  }}" class="post-list-pagination-item post-list-pagination-item-next" data-pjax>
+                    Older&nbsp;<i class="fa fa-angle-double-right"></i>
+                  </a>
+                {{ end }}
+              </nav>
+
+
+                {{ partial "footer" . }}
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    {{ partial "after_footer" . }}
+  </body>
+</html>
