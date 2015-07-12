@@ -1,6 +1,6 @@
 # Ghostium
 
-A theme focused on content based on [Medium](https://medium.com) design/ux ported from Ghost.
+[Ghostium](https://github.com/oswaldoacauan/ghostium/) is a theme focused on content based on [Medium](https://medium.com) design/ux.
 
 ![mobile view](/images/screenshot_mobile.png)
 
