@@ -9,14 +9,27 @@
       <div class="surface">
         <div class="surface-container">
           <div data-pjax-container class="content">
-            <section class="wrapper" tabindex="0">
-              <div class="wrapper-container">
-                {{ partial "custom/featured" . }}
 
+            {{ partial "cover" . }}
 
+              <section class="wrapper" tabindex="0">
+                <div class="wrapper-container">
+                  {{ $arr := split .Permalink "/" }}
+                  {{ $len := len $arr }}
+                  {{ $last := sub $len 2 }}
+                  <header>
+                    <p><h2>Posts tagged with <i>{{ index $arr $last }}</i></h2></p>
+                    <hr>
+                  </header>
 
-                {{ partial "footer" . }}
-              </div>
+                  <section class="post-list">
+                    {{ range where .Data.Pages "Type" "post" }}
+                      {{ .Render "summary" }}
+                    {{ end }}
+                  </section>
+
+                  {{ partial "footer" . }}
+                </div>
             </section>
           </div>
         </div>

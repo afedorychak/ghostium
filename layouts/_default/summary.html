@@ -12,15 +12,20 @@
   </section>
   <footer class="post-item-footer">
     <ul class="post-item-meta-list">
+
       <li class="post-item-meta-item">
         <time datetime='{{ dateFormat "2006-01-02" .Date }}' itemprop="datePublished">
           {{ dateFormat "2006-01-02" .Date }}
         </time>
       </li>
-      {{ partial "categories" . }}
+      {{ partial "tags" . }}
+
+      {{ if ne .Params.comments "false" }}
       <li class="post-item-meta-item">
-        <a href="{{ .Permalink }}#disqus_thread" data-pjax data-disqus-identifier="{{ $.Site.Params.disqus_short_name }}">Comments</a>
+        <a href="{{ .Permalink }}#disqus_thread" data-disqus-identifier='{{ dateFormat "20060102150405" .Date }}'>Comments</a>
       </li>
+      {{ end }}
+
     </ul>
   </footer>
 </article>

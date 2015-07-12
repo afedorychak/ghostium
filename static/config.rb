@@ -3,8 +3,8 @@
 # Set this to the root of your project when deployed:
 http_path = "/"
 css_dir = "css"
-sass_dir = "_sass"
-images_dir = "images"
+sass_dir = "_scss"
+images_dir = "img"
 javascripts_dir = "js"
 
 # You can select your preferred output style here (can be overridden via the command line):
@@ -16,6 +16,7 @@ output_style = :compressed
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 line_comments = false
 
+encoding = "utf-8"
 
 # If you prefer the indented syntax, you might want to regenerate this
 # project again passing --syntax sass, or you can uncomment this:

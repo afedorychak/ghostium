@@ -1,9 +1,9 @@
 <aside role="banner" class="cover">
   <div {{ if $.Site.Params.cover }}data-load-image="{{ $.Site.Params.cover }}"{{ end }} class="cover-image"></div>
   <div class="cover-container">
-    {{ if $.Site.Params.logo }}
+    {{ if $.Site.Author.avatar }}
       <a href="{{ $.Site.BaseURL }}" class="cover-logo" data-pjax>
-        <img src="{{ $.Site.Params.logo }}" alt="Blog Logo">
+        <img src="{{ $.Site.Author.avatar }}" alt="Blog Logo">
       </a>
     {{ end }}
     <h1 class="cover-title">{{ $.Site.Title }}</h1>

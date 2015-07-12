@@ -9,6 +9,8 @@
       <div class="surface">
         <div class="surface-container">
           <div data-pjax-container class="content">
+
+            {{ partial "cover" . }}
             <section class="wrapper" tabindex="0">
               <div class="wrapper-container">
                 {{ partial "custom/featured" . }}
@@ -26,7 +28,7 @@
                     <i class="fa fa-angle-double-left"></i>&nbsp;Newer
                   </a>
                 {{ end }}
-                <span class="post-list-pagination-item post-list-pagination-item-current">Page 1 of 10</span>
+                <span class="post-list-pagination-item post-list-pagination-item-current">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
                 {{ if $paginator.HasNext }}
                   <a href="{{ $paginator.Next.URL  }}" class="post-list-pagination-item post-list-pagination-item-next" data-pjax>
                     Older&nbsp;<i class="fa fa-angle-double-right"></i>

@@ -1,38 +1,59 @@
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
-    <!-- build:js /assets/js/foot-scripts.min.js -->
-    <script src="/assets/_components/fastclick/lib/fastclick.js"></script>
+    <!-- build:js js/foot-scripts.min.js -->
+    <script src="/_components/fastclick/lib/fastclick.js"></script>
 
     <!-- PrismJS core, aditional languages and plugins -->
-    <script src="/assets/_components/prism/prism.js"></script>
-    <script src="/assets/_components/prism/components/prism-aspnet.js"></script>
-    <script src="/assets/_components/prism/components/prism-bash.js"></script>
-    <script src="/assets/_components/prism/components/prism-c.js"></script>
-    <script src="/assets/_components/prism/components/prism-clike.js"></script>
-    <script src="/assets/_components/prism/components/prism-coffescript.js"></script>
-    <script src="/assets/_components/prism/components/prism-cpp.js"></script>
-    <script src="/assets/_components/prism/components/prism-csharp.js"></script>
-    <script src="/assets/_components/prism/components/prism-css-extras.js"></script>
-    <script src="/assets/_components/prism/components/prism-gherkin.js"></script>
-    <script src="/assets/_components/prism/components/prism-go.js"></script>
-    <script src="/assets/_components/prism/components/prism-groovy.js"></script>
-    <script src="/assets/_components/prism/components/prism-http.js"></script>
-    <script src="/assets/_components/prism/components/prism-java.js"></script>
-    <script src="/assets/_components/prism/components/prism-nsis.js"></script>
-    <script src="/assets/_components/prism/components/prism-php.js"></script>
-    <script src="/assets/_components/prism/components/prism-php-extras.js"></script>
-    <script src="/assets/_components/prism/components/prism-python.js"></script>
-    <script src="/assets/_components/prism/components/prism-ruby.js"></script>
-    <script src="/assets/_components/prism/components/prism-scss.js"></script>
-    <script src="/assets/_components/prism/components/prism-sql.js"></script>
-    <script src="/assets/_components/prism/plugins/autolinker/prism-autolinker.js"></script>
+    <script src="/_components/prism/prism.js"></script>
+    <script src="/_components/prism/components/prism-aspnet.js"></script>
+    <script src="/_components/prism/components/prism-bash.js"></script>
+    <script src="/_components/prism/components/prism-c.js"></script>
+    <script src="/_components/prism/components/prism-clike.js"></script>
+    <script src="/_components/prism/components/prism-coffeescript.js"></script>
+    <script src="/_components/prism/components/prism-cpp.js"></script>
+    <script src="/_components/prism/components/prism-csharp.js"></script>
+    <script src="/_components/prism/components/prism-css-extras.js"></script>
+    <script src="/_components/prism/components/prism-gherkin.js"></script>
+    <script src="/_components/prism/components/prism-go.js"></script>
+    <script src="/_components/prism/components/prism-groovy.js"></script>
+    <script src="/_components/prism/components/prism-http.js"></script>
+    <script src="/_components/prism/components/prism-java.js"></script>
+    <script src="/_components/prism/components/prism-nsis.js"></script>
+    <script src="/_components/prism/components/prism-php.js"></script>
+    <script src="/_components/prism/components/prism-php-extras.js"></script>
+    <script src="/_components/prism/components/prism-python.js"></script>
+    <script src="/_components/prism/components/prism-ruby.js"></script>
+    <script src="/_components/prism/components/prism-scss.js"></script>
+    <script src="/_components/prism/components/prism-sql.js"></script>
+    <script src="/_components/prism/plugins/autolinker/prism-autolinker.js"></script>
 
-    <script src="/assets/_components/jquery-pjax/jquery.pjax.js"></script>
-    <script src="/assets/js/drawer.js"></script>
-    <script src="/assets/js/imageLoader.js"></script>
-    <script src="/assets/js/scripts.js"></script>
+    <script src="/_components/jquery-pjax/jquery.pjax.js"></script>
+    <script src="/js/drawer.js"></script>
+    <script src="/js/imageLoader.js"></script>
+    <script src="/js/scripts.js"></script>
     <!-- endbuild -->
 
     <script type="text/javascript">
+      {{ if .IsPage }}
+        {{ if ne .Params.show_comment false }}
+          if(GHOSTIUM.haveDisqus) {
+            var disqus_developer = 1;
+            var disqus_shortname = '{{ $.Site.Params.disqus_short_name }}';
+
+
+            if(typeof DISQUS !== 'object') {
+              (function () {
+              var s = document.createElement('script'); s.async = true;
+              s.type = 'text/javascript';
+              s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+              }());
+            }
+          } else {
+            document.querySelector('.post-comments').remove();
+          }
+        {{ end }}
+      {{ end }}
 
       if(GHOSTIUM.haveGA) {
         (function(g,h,o,s,t,z){g.GoogleAnalyticsObject=s;g[s]||(g[s]=
@@ -44,6 +65,9 @@
       }
 
       if(GHOSTIUM.haveDisqus) {
+        var disqus_developer = 1;
+        var disqus_shortname = '{{ $.Site.Params.disqus_short_name }}';
+
         (function () {
         var s = document.createElement('script'); s.async = true;
         s.type = 'text/javascript';

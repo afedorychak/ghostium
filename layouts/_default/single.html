@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial "header" . }}
+  <body class="">
+    {{ partial "drawer" . }}
+
+    <div class="drawer-overlay"></div>
+    <main id="container" role="main" class="container">
+      <div class="surface">
+        <div class="surface-container">
+          <div data-pjax-container class="content">
+
+<section class="wrapper wrapper-post">
+  <div class="wrapper-container">
+    <article itemscope itemtype="http://schema.org/BlogPosting" role="article" class="post">
+        <section class="post-container">
+          <header class="post-header">
+            <ul class="post-meta-list">
+              <li class="post-item-meta-item">
+                <time datetime='{{ dateFormat "2006-01-02" .Date }}' itemprop="datePublished">
+                  {{ dateFormat "2006-01-02" .Date }}
+                </time>
+              </li>
+              {{ partial "tags" . }}
+
+              {{ if ne .Params.comments "false" }}
+              <li class="post-item-meta-item">
+                <a href="{{ .Permalink }}#disqus_thread" data-disqus-identifier='{{ dateFormat "20060102150405" .Date }}'>Comments</a>
+              </li>
+              {{ end }}
+            </ul>
+            <h1 itemprop="name headline" class="post-title"><a href="{{ .Permalink }}" itemprop="url" data-pjax title="{{ .Title }}">{{ .Title }}</a></h1>
+            <!-- A subtitle not available in Ghosts yet -->
+            <!--h2 itemprop="about" class="post-subtitle"></h2-->
+          </header>
+          <aside class="post-side">
+            <div class="post-author">
+                <a href="{{if .Params.website}}{{.Params.website}}{{else}}{{$.Site.BaseURL}}{{end}}" class="post-author-avatar">
+                  <img src="{{if .Params.avatar}}{{.Params.avatar}}{{else}}{{$.Site.Author.avatar}}{{end}}" alt="{{if .Params.author}}{{.Params.author}}{{else}}{{$.Site.Author.name}}{{end}}">
+                </a>
+              <div class="post-author-info">
+                <a href="{{if .Params.website}}{{.Params.website}}{{else}}{{$.Site.BaseURL}}{{end}}" class="post-author-name">
+                  {{if .Params.author}}{{.Params.author}}{{else}}{{$.Site.Author.name}}{{end}}
+                </a>
+                <p class="post-author-bio">{{ .Params.author_aio }}</p>
+              </div>
+            </div>
+          </aside>
+          <div itemprop="articleBody" class="post-body">
+            {{ .Content }}
+          </div>
+          <footer class="post-footer">
+            <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="post-author">
+                <a href="{{ $.Site.BaseURL }}" class="post-author-avatar">
+                  <img itemprop="image" src="{{if .Params.avatar}}{{.Params.avatar}}{{else}}{{$.Site.Author.avatar}}{{end}}" alt="{{if .Params.author}}{{.Params.author}}{{else}}{{$.Site.Author.name}}{{end}}">
+                </a>
+              <div class="post-author-info">
+                <h4 class="post-footer-heading">Written By</h4>
+                <a href="{{if .Params.website}}{{.Params.website}}{{else}}{{$.Site.BaseURL}}{{end}}" itemprop="url" class="post-author-name">
+                  <span itemprop="name">{{if .Params.author}}{{.Params.author}}{{else}}{{$.Site.Author.name}}{{end}}</span>
+                </a>
+                <p itemprop="description" class="post-author-bio">{{ .Params.author_aio }}</p>
+                {{ if .Params.location }}
+                  <p class="post-author-location">{{ .Params.location }}</p>
+                {{ end }}
+                {{ if .Params.website }}
+                  <p class="post-author-website">
+                    <a href="{{ .Params.website }}" rel="nofollow">{{ .Params.website }}</a>
+                  </p>
+                {{ end }}
+                <p class="post-info">
+                  <b class="post-info-title">Published on</b>
+                  <time class="post-date">{{ dateFormat "Jan 2, 2006" .Date }}</time>
+                </p>
+              </div>
+            </div>
+            <div class="post-social">
+              <h4 class="post-footer-heading">Spread the word</h4>
+              <a href="#" data-action="share-twitter"><i class="fa fa-fw fa-lg fa-twitter"></i></a>
+              <a href="#" data-action="share-facebook"><i class="fa fa-fw fa-lg fa-facebook"></i></a>
+              <a href="#" data-action="share-gplus"><i class="fa fa-fw fa-lg fa-google-plus"></i></a>
+            </div>
+          </footer>
+        </section>
+
+      <section itemprop="comment" class="post-comments">
+        <div id="disqus_thread"></div>
+      </section>
+    </article>
+
+                {{ partial "footer" . }}
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+    {{ partial "after_footer" . }}
+  </body>
+</html>

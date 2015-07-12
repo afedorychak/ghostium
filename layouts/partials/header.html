@@ -27,23 +27,22 @@
 
     {{ partial "custom/meta" . }}
 
+    <link href='/index.xml' rel="alternate" title="{{ $title }}" type="application/atom+xml">
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/apple-touch-icon-precomposed.png" rel="apple-touch-icon">
 
     <link href="//fonts.googleapis.com/" rel="dns-prefetch">
     <link href="//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Open+Sans:700,400&subset=latin,latin-ext" rel="stylesheet">
 
-    <!-- build:css({src,.tmp}) /assets/css/main.min.css -->
-    <link href="/assets/_components/font-awesome/css/font-awesome.css">
-    <link href="/assets/_components/prism/themes/prism.css">
-    <link href="/assets/_components/prism/plugins/autolinker/prism-autolinker.css">
-    <link href="/assets/_components/pace/themes/pace-theme-minimal.css">
-    <link href="/assets/css/style.css">
+    <!-- build:css({src,.tmp}) /css/main.min.css -->
+    <link rel="stylesheet" href="/_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="/_components/prism/themes/prism.css">
+    <link rel="stylesheet" href="/_components/prism/plugins/autolinker/prism-autolinker.css">
+    <link rel="stylesheet" href="/_components/pace/themes/pace-theme-minimal.css">
+    <link rel="stylesheet" href="/css/style.css">
     <!-- endbuild -->
 
     <script type="text/javascript">
-      {{ partial "custom/config" . }}
-
       // Pace Options
       // ==============
       window.paceOptions = {
@@ -57,14 +56,14 @@
       // Ghostium Globals
       // ==============
       window.GHOSTIUM = {};
-      GHOSTIUM.haveGA = typeof ga_ua !== 'undefined' && ga_ua !== 'UA-XXXXX-X';
-      GHOSTIUM.haveDisqus = typeof disqus_shortname !== 'undefined' && disqus_shortname !== 'example';
-      GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
+      GHOSTIUM.haveGA = {{ if $.Site.Params.google_analytics_tracking_id }} true; {{ else }} false; {{ end }}
+      GHOSTIUM.haveDisqus = {{ if $.Site.Params.disqus_short_name }} true; {{ else }} false; {{ end }}
+      GHOSTIUM.enablePjax = {{ if $.Site.Params.enable_pjax }} true; {{ else }} false; {{ end }}
     </script>
 
-    <!-- build:js /assets/js/head-scripts.min.js -->
-    <script src="/assets/_components/modernizr/modernizr.js"></script>
-    <script src="/assets/_components/pace/pace.js"></script>
+    <!-- build:js /js/head-scripts.min.js -->
+    <script src="/_components/modernizr/modernizr.js"></script>
+    <script src="/_components/pace/pace.js"></script>
     <!-- endbuild -->
 
   </head>

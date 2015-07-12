@@ -1,21 +1,18 @@
-# theme.toml template for a Hugo theme
-# See https://github.com/spf13/hugoThemes#themetoml for an example
-
 name = "Ghostium"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE.md"
-description = ""
-homepage = "http://siteforthistheme.com/"
-tags = ["", ""]
-features = ["", ""]
-min_version = 0.13
+licenselink = "http://sm.mit-license.org/"
+description = "Port of oswaldoacauan's ghostium theme to Hugo"
+homepage = "https://github.com/cxfksword/ghostium"
+tags = ["blog", "ghostium"]
+features = ["blog"]
+min_version = 0.14
 
 [author]
-  name = ""
-  homepage = ""
+  name = "cxfksword"
+  homepage = "http://cxfksword.coding.io"
 
 # If porting an existing theme
 [original]
-  name = ""
-  homepage = ""
-  repo = ""
+  name = "oswaldoacauan"
+  homepage = "https://github.com/oswaldoacauan/ghostium/"
+  repo = "https://github.com/oswaldoacauan/ghostium/"
