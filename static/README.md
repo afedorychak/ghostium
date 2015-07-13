@@ -7,5 +7,8 @@
 ```
 gem install sass
 gem install compass
+gem install jammit
+
 compass compile
+jammit -u http://hugo.io -o assets
 ```

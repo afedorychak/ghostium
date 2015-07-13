@@ -1,0 +1,43 @@
+embed_assets: off
+gzip_assets: off
+template_function: off
+javascript_compressor: closure
+compressor_options:
+  compilation_level: "ADVANCED_OPTIMIZATIONS"
+
+javascripts:
+  foot-scripts.min:
+    - _components/fastclick/lib/fastclick.js
+    - _components/prism/prism.js
+    - _components/prism/components/prism-aspnet.js
+    - _components/prism/components/prism-bash.js
+    - _components/prism/components/prism-c.js
+    - _components/prism/components/prism-clike.js
+    - _components/prism/components/prism-coffeescript.js
+    - _components/prism/components/prism-cpp.js
+    - _components/prism/components/prism-csharp.js
+    - _components/prism/components/prism-css-extras.js
+    - _components/prism/components/prism-gherkin.js
+    - _components/prism/components/prism-go.js
+    - _components/prism/components/prism-groovy.js
+    - _components/prism/components/prism-http.js
+    - _components/prism/components/prism-java.js
+    - _components/prism/components/prism-nsis.js
+    - _components/prism/components/prism-php.js
+    - _components/prism/components/prism-php-extras.js
+    - _components/prism/components/prism-python.js
+    - _components/prism/components/prism-ruby.js
+    - _components/prism/components/prism-scss.js
+    - _components/prism/components/prism-sql.js
+    - _components/prism/plugins/autolinker/prism-autolinker.js
+    - js/drawer.js
+    - js/imageLoader.js
+    - js/scripts.js
+
+stylesheets:
+  main.min:
+    - _components/font-awesome/css/font-awesome.css
+    - _components/prism/themes/prism.css
+    - _components/prism/plugins/autolinker/prism-autolinker.css
+    - _components/pace/themes/pace-theme-minimal.css
+    - css/style.css
