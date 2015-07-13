@@ -33,6 +33,9 @@ javascripts:
     - js/drawer.js
     - js/imageLoader.js
     - js/scripts.js
+  head-scripts.min:
+    - _components/modernizr/modernizr.js
+    - _components/pace/pace.js
 
 stylesheets:
   main.min:
